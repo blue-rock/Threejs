@@ -30,12 +30,35 @@ const sphere = new THREE.Mesh(geometry,material)
 scene.add(sphere)
 
 // Lights
+//Light 1
+const pointLight1 = new THREE.PointLight(0xffffff, 0.1)
+pointLight1.position.x = 2
+pointLight1.position.y = 3
+pointLight1.position.z = 4
+scene.add(pointLight1)
 
-const pointLight = new THREE.PointLight(0xffffff, 0.1)
-pointLight.position.x = 2
-pointLight.position.y = 3
-pointLight.position.z = 4
-scene.add(pointLight)
+//Light 2
+const pointLight3 = new THREE.PointLight(0xff0000, 2)
+pointLight3.position.set(-2.34,1.05,-2.6)
+pointLight3.intensity = 10;
+scene.add(pointLight3)
+gui.add(pointLight3.position,'x').min(-3).max(3).step(0.01)
+gui.add(pointLight3.position,'y').min(-6).max(6).step(0.01)
+gui.add(pointLight3.position,'z').min(-3).max(3).step(0.01)
+gui.add(pointLight3,'intensity').min(0).max(10).step(0.01)
+const pointLightHelper2 = new THREE.PointLightHelper(pointLight3,1)
+scene.add(pointLightHelper2)
+//Light 3
+const pointLight2 = new THREE.PointLight(0xff0000, 2)
+pointLight2.position.set(-2.34,1.05,-2.6)
+pointLight2.intensity = 10;
+scene.add(pointLight2)
+gui.add(pointLight2.position,'x').min(-3).max(3).step(0.01)
+gui.add(pointLight2.position,'y').min(-6).max(6).step(0.01)
+gui.add(pointLight2.position,'z').min(-3).max(3).step(0.01)
+gui.add(pointLight2,'intensity').min(0).max(10).step(0.01)
+const pointLightHelper = new THREE.PointLightHelper(pointLight2,1)
+scene.add(pointLightHelper)
 
 /**
  * Sizes
